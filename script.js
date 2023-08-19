@@ -1,7 +1,7 @@
 let xOff = 0;
-let xIncrement = 2;
 const amplitudeSlider = document.getElementById('amplitude');
 const wavelengthSlider = document.getElementById('wavelength');
+const wavespeedSlider = document.getElementById('wavespeed');
 const canvasContainer = document.getElementById('canvas-container');
 const canvasWidth = canvasContainer.clientWidth;
 const canvasHeight = 300;
@@ -16,6 +16,7 @@ function setup() {
 function draw() {
     const yAmplitude = amplitudeSlider.value;
     const period = wavelengthSlider.value;
+    const xIncrement = wavespeedSlider.value / 10;
 
     if (xOff >= canvasWidth) {
         clearCanvas();
@@ -48,14 +49,6 @@ function draw() {
 
     xOff += xIncrement;
 }
-
-amplitudeSlider.addEventListener('input', function () {
-    clearCanvas();
-});
-
-wavelengthSlider.addEventListener('input', function () {
-    clearCanvas();
-});
 
 function clearCanvas() {
     clear();
