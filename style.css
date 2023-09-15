@@ -1,14 +1,16 @@
 body {
+    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #ffd966;
+    background: linear-gradient(to bottom, #ffd966, #ffbf00);
     color: white;
     text-align: center;
     padding: 1rem;
+    font-size: 24px;
 }
 
 main {
@@ -19,19 +21,44 @@ main {
 }
 
 #canvas-container {
-    border: 1px solid black;
     max-width: 1000px;
     max-height: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: 20px;
 }
 
 .controls {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+    padding: 10px;
 }
 
-input {
+input[type="range"] {
     width: 80%;
+    padding: 10px;
+    appearance: none;
+    background: #ddd;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ffbf00;
+    border: 2px solid #ffbf00;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffbf00;
+    border: 2px solid #ffbf00;
+    border-radius: 50%;
+    cursor: pointer;
 }

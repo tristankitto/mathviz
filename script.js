@@ -1,16 +1,12 @@
 let xOff = 0;
-const amplitudeSlider = document.getElementById('amplitude');
-const wavelengthSlider = document.getElementById('wavelength');
-const wavespeedSlider = document.getElementById('wavespeed');
-const canvasContainer = document.getElementById('canvas-container');
-const canvasWidth = canvasContainer.clientWidth;
-const canvasHeight = 300;
-
-let dotPositions = [];
+let amplitudeSlider, wavelengthSlider, wavespeedSlider, canvas, dotPositions = [];
 
 function setup() {
-    const canvas = createCanvas(canvasWidth, canvasHeight);
+    canvas = createCanvas(1, 1);
     canvas.parent('canvas-container');
+    canvas.id('canvas');
+    updateCanvasSize();
+    setupSliders();
 }
 
 function draw() {
@@ -18,7 +14,7 @@ function draw() {
     const period = wavelengthSlider.value;
     const xIncrement = wavespeedSlider.value / 10;
 
-    if (xOff >= canvasWidth) {
+    if (xOff >= width) {
         clearCanvas();
     }
 
@@ -26,7 +22,7 @@ function draw() {
 
     translate(0, height / 2);
 
-    const x = xOff % canvasWidth;
+    const x = xOff % width;
     const y = yAmplitude * sin(TWO_PI * xOff / period);
 
     noStroke();
@@ -43,7 +39,7 @@ function draw() {
     }
     endShape();
 
-    if (dotPositions.length > canvasWidth) {
+    if (dotPositions.length > width) {
         dotPositions.shift();
     }
 
@@ -55,3 +51,31 @@ function clearCanvas() {
     dotPositions = [];
     xOff = 0;
 }
+
+function updateCanvasSize() {
+    const canvasContainer = select('#canvas-container');
+    const containerWidth = canvasContainer.width - 45;
+    const containerHeight = min(300, windowHeight - select('header').height - select('.controls').height - 20); // Adjust max height as needed
+
+    resizeCanvas(containerWidth, containerHeight);
+
+    canvas.elt.style.border = '1px solid black';
+}
+
+function windowResized() {
+    updateCanvasSize();
+}
+
+function setupSliders() {
+    amplitudeSlider = document.getElementById('amplitude');
+    wavelengthSlider = document.getElementById('wavelength');
+    wavespeedSlider = document.getElementById('wavespeed');
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    setupSliders();
+});
+
+window.addEventListener('resize', (event) => {
+    updateCanvasSize();
+});
