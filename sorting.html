@@ -5,16 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Algorithm Visualizer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+    <script src="js/p5.js"></script>
+    <script src="js/sorting.js"></script>
 </head>
 
 <body>
     <header>
         <h1>Sorting Algorithm Visualizer</h1>
     </header>
-
-    <h1>Under Construction!</h1>
+    <main>
+        <div class="controls">
+            <label for="algorithm">Select Sorting Algorithm:</label>
+            <select id="algorithm">
+                <option value="quick">Quick Sort</option>
+                <option value="bubble">Bubble Sort</option>
+                <option value="insertion">Insertion Sort</option>
+                <option value="bogo">Bogo Sort</option>
+            </select>
+            <button id="start">Start Sorting</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div id="sorting-container">
+        </div>
+    </main>
 </body>
 
 </html>
