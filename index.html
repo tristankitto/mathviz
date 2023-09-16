@@ -4,28 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathViz</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="p5.js"></script>
-    <script src="script.js" defer></script>
-    <title>Math Visualizations</title>
 </head>
 
 <body>
     <header>
-        <h1>Sine Curve Visualizer</h1>
+        <h1>MathViz</h1>
     </header>
-    <div class="controls">
-        <label for="amplitude">Amplitude:</label>
-        <input type="range" id="amplitude" min="0" max="150" value="75">
-        <label for="wavelength">Wavelength:</label>
-        <input type="range" id="wavelength" min="50" max="400" value="225">
-        <label for="wavespeed">Wave Speed:</label>
-        <input type="range" id="wavespeed" min="2" max="100" value="51">
-    </div>
-    <div id="canvas-container">
-    </div>
+    <main class="grid-container">
+        <section class="visualizer">
+            <h2>Sine Curve Visualizer</h2>
+            <p>Explore a Sine Curve. Watch how the curve changes as you alter the amplitude, wavelength or wave speed!
+            </p>
+            <img src="imgs/sine_curve.jpg" alt="Sine Curve" class="preview-img">
+            <a href="sine_curve.html">Go to Sine Curve Visualizer</a>
+        </section>
 
+        <section class="visualizer">
+            <h2>Sorting Algorithm Visualizer - Under Construction</h2>
+            <p>See how different sorting algorithms manipulate data sets to sort them!</p>
+            <a href="sorting.html">Go to Sorting Algorithm Visualizer</a>
+        </section>
+
+        <section class="visualizer">
+            <h2>Sieve of Eratosthenes - Under Construction</h2>
+            <p>Watch the Sieve of Eratosthenes in action. See how the sieve finds all prime numbers up to a given value!
+            </p>
+            <a href="sieve.html">Go to Sieve of Eratosthenes</a>
+        </section>
+
+        <section class="visualizer">
+            <h2>Graph Plotter - Under Construction</h2>
+            <p>Plot 2D equations to see how the curves are visualized!</p>
+            <a href="plotter.html">Go to Graph Plotter</a>
+        </section>
+    </main>
 </body>
 
 </html>

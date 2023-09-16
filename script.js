@@ -55,7 +55,7 @@ function clearCanvas() {
 function updateCanvasSize() {
     const canvasContainer = select('#canvas-container');
     const containerWidth = canvasContainer.width - 45;
-    const containerHeight = min(300, windowHeight - select('header').height - select('.controls').height - 20); // Adjust max height as needed
+    const containerHeight = min(300, windowHeight - select('header').height - select('.controls').height - 20);
 
     resizeCanvas(containerWidth, containerHeight);
 
