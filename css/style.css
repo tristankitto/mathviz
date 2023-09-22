@@ -39,6 +39,13 @@ header {
     padding: 10px;
 }
 
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
 input[type="range"] {
     width: 80%;
     padding: 10px;
@@ -152,6 +159,7 @@ button {
     font-weight: bold;
     border: none;
     margin: 3px;
+    white-space: nowrap;
 }
 
 button:hover {

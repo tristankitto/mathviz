@@ -2,6 +2,7 @@ let values = [];
 let i = 0;
 let j = 0;
 let sorting = false;
+let algorithm;
 
 function setup() {
     canvas = createCanvas(1, 1);
@@ -16,6 +17,7 @@ function setup() {
 
     const startButton = document.getElementById("start");
     startButton.addEventListener("click", function () {
+        sorting = true;
         start();
     });
 
@@ -23,10 +25,32 @@ function setup() {
     resetButton.addEventListener("click", function () {
         reset();
     });
+
+    const cancelButton = document.getElementById("cancel");
+    cancelButton.addEventListener("click", function () {
+        sorting = false;
+    });
+
 }
 
 function start() {
-    // start sorting
+
+    algorithm = document.getElementById("algorithm");
+
+    function step() {
+        if (!isSorted(values) && sorting) {
+            switch (algorithm.value) {
+                case "bogo":
+                    shuffleArray(values);
+                    redraw();
+                    setTimeout(step, 500);
+            }
+        } else {
+            sorting = false;
+        }
+    }
+
+    step();
 }
 
 function reset() {
@@ -37,7 +61,6 @@ function reset() {
     i = 0;
     j = 0;
     sorting = false;
-    loop();
 }
 
 function draw() {
@@ -59,11 +82,22 @@ function updateCanvasSize() {
     canvas.elt.style.border = '1px solid black';
 }
 
-function windowResized() {
-    updateCanvasSize();
-    reset();
-}
-
 window.addEventListener('resize', (event) => {
     updateCanvasSize();
 });
+
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+}
+
+function isSorted(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
